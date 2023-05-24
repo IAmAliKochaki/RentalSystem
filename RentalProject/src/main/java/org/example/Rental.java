@@ -1,17 +1,18 @@
-import java.util.ArrayList;
+package org.example;
 import java.util.Date;
 
-public class Rental {
-    private Movie movie;
+public class Rental{
+    private Item item;
     private Customer customer;
-    private int id;
+    private int ID;
+    private static int id=1;
     public  Date rentalDate;
     public  Date returnDate;
 
-    public Rental(Movie movie, Customer customer, int id) {
-        this.movie = movie;
-        this.customer = customer;
-        this.id = id;
+    public Rental(Item item, Customer customer) {
+        this.item = item;
+        this.customer = new Customer(customer.getName(), customer.getEmail(), customer.getPhoneNumber(), customer.getAddress(), customer.getID());
+        this.ID = id++;
     }
 
     public Date getRentalDate(){
@@ -24,11 +25,11 @@ public class Rental {
 
     public void setReturnDate(Date returnDate){this.returnDate = returnDate;}
 
-    public Movie getMovie() {return movie;}
+    public Item getItem() {return item;}
 
     public Customer getCustomer() {return customer;}
 
-    public int getId() {return id;}
+    public int getId() {return ID;}
 
     public void setrentalDate(Date rentalDate){this.rentalDate = rentalDate;}
 
